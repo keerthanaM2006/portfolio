@@ -1,0 +1,69 @@
+:root {
+  --bg: #eef2f6;
+  --ink: #1b2a41;
+  --muted: #55657d;
+  --accent: #2f5bea;
+  --panel: #ffffff;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: "Bricolage Grotesque", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.65;
+}
+a { color: var(--accent); }
+a:focus-visible, .btn:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+
+.nav {
+  position: sticky; top: 0; z-index: 10;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 8%;
+  background: var(--bg);
+  border-bottom: 1px solid #d5dde8;
+}
+.logo { font-weight: 800; text-decoration: none; color: var(--ink); }
+.nav nav a { margin-left: 1.5rem; text-decoration: none; color: var(--muted); font-weight: 600; }
+.nav nav a:hover { color: var(--accent); }
+
+.hero {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 3rem; padding: 5rem 8%; min-height: 80vh;
+}
+.hero-text { max-width: 34rem; }
+.hero h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1.1; font-weight: 800; }
+.hero p { margin: 1.2rem 0 2rem; color: var(--muted); font-size: 1.15rem; }
+.btn {
+  display: inline-block; padding: .8rem 1.6rem;
+  background: var(--accent); color: #fff;
+  border-radius: 6px; text-decoration: none; font-weight: 600;
+  transition: background .2s;
+}
+.btn:hover { background: var(--ink); }
+.profile {
+  width: 280px; height: 280px; object-fit: cover;
+  border-radius: 50%; border: 6px solid var(--panel);
+  background: #cfd8e6;
+}
+
+.section { padding: 4rem 8%; max-width: 60rem; }
+.section h2 { font-size: 2rem; margin-bottom: 1rem; }
+.section p { max-width: 42rem; margin-bottom: 1rem; color: var(--muted); }
+
+.skills { list-style: none; display: flex; flex-wrap: wrap; gap: .75rem; }
+.skills li {
+  padding: .5rem 1.1rem; background: var(--panel);
+  border: 1px solid #d5dde8; border-radius: 999px; font-weight: 600;
+}
+.contact { list-style: none; }
+.contact li { margin-bottom: .5rem; }
+
+footer { padding: 2rem 8%; color: var(--muted); border-top: 1px solid #d5dde8; }
+
+@media (max-width: 720px) {
+  .hero { flex-direction: column-reverse; text-align: center; padding-top: 3rem; }
+  .profile { width: 200px; height: 200px; }
+  .nav nav a { margin-left: .9rem; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
