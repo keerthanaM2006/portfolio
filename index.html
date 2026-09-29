@@ -12,11 +12,13 @@
 
   <header class="nav">
     <a href="#home" class="logo">Keerthana M</a>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
   </header>
 
   <!-- HOME / HERO -->
@@ -25,6 +27,7 @@
       <h1>Hi, I'm Keerthana M. I build things for the web.</h1>
       <p>Aspiring web developer learning HTML, CSS and JavaScript, one project at a time.</p>
       <a class="btn" href="#contact">Get in touch</a>
+      <a class="btn secondary" href="#about" style="margin-left:.75rem;">Learn more</a>
     </div>
     <img class="profile" alt="Keerthana M" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%232f5bea'/%3E%3Ctext x='100' y='125' font-size='80' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'%3EKM%3C/text%3E%3C/svg%3E">
   </section>
@@ -32,34 +35,57 @@
   <!-- ABOUT -->
   <section id="about" class="section">
     <h2>About me</h2>
-    <p>I'm a 3rd year student of Information Science Engineering at Sri Siddhartha Institute of Technology, Tumkur. I enjoy turning ideas into clean, working websites, and I'm currently doing an internship to strengthen my front-end skills.</p>
-    <p>Outside of coding, I like listening to music and watching movies.</p>
+    <p class="lead">I'm a 3rd year student of Information Science Engineering at Sri Siddhartha Institute of Technology, Tumkur. I enjoy turning ideas into clean, working websites, and I'm currently doing an internship to strengthen my front-end skills.</p>
+    <p class="lead">Outside of coding, I like listening to music and watching movies.</p>
   </section>
 
   <!-- SKILLS -->
   <section id="skills" class="section">
     <h2>Skills</h2>
-    <ul class="skills">
-      <li>HTML5</li>
-      <li>CSS3</li>
-      <li>JavaScript (learning)</li>
-      <li>Git &amp; GitHub</li>
-      <li>VS Code</li>
-      <li>Problem solving</li>
-    </ul>
+    <div class="skills-grid">
+      <div class="skill-card"><span class="icon">&#128187;</span>HTML5</div>
+      <div class="skill-card"><span class="icon">&#127912;</span>CSS3</div>
+      <div class="skill-card"><span class="icon">&#9889;</span>JavaScript</div>
+      <div class="skill-card"><span class="icon">&#128193;</span>Git &amp; GitHub</div>
+      <div class="skill-card"><span class="icon">&#128295;</span>VS Code</div>
+      <div class="skill-card"><span class="icon">&#129504;</span>Problem Solving</div>
+    </div>
   </section>
 
   <!-- CONTACT -->
   <section id="contact" class="section">
     <h2>Contact</h2>
-    <p>Want to work together or just say hello? Reach me here:</p>
-    <ul class="contact">
-      <li>Email: <a href="mailto:keerthim0457@gmail.com">keerthim0457@gmail.com</a></li>
-      <li>LinkedIn: <a href="https://www.linkedin.com/in/keerthana-m" target="_blank" rel="noopener">linkedin.com/in/keerthana-m</a></li>
-      <li>GitHub: <a href="https://github.com/keerthanaM2006" target="_blank" rel="noopener">github.com/keerthanaM2006</a></li>
-    </ul>
+    <p class="lead">Want to work together or just say hello? Reach me here:</p>
+    <div class="contact-cards">
+      <a class="contact-card" href="mailto:keerthim0457@gmail.com">
+        <span class="icon">&#9993;&#65039;</span>
+        <span class="label">Email</span>
+        <span class="value">keerthim0457@gmail.com</span>
+      </a>
+      <a class="contact-card" href="https://www.linkedin.com/in/keerthana-m" target="_blank" rel="noopener">
+        <span class="icon">&#128188;</span>
+        <span class="label">LinkedIn</span>
+        <span class="value">linkedin.com/in/keerthana-m</span>
+      </a>
+      <a class="contact-card" href="https://github.com/keerthanaM2006" target="_blank" rel="noopener">
+        <span class="icon">&#128187;</span>
+        <span class="label">GitHub</span>
+        <span class="value">github.com/keerthanaM2006</span>
+      </a>
+    </div>
   </section>
 
   <footer>&copy; 2026 Keerthana M</footer>
+
+  <script>
+    const toggle = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => {
+      links.classList.toggle('open');
+      const expanded = links.classList.contains('open');
+      toggle.setAttribute('aria-expanded', expanded);
+    });
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+  </script>
 </body>
 </html>
