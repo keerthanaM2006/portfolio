@@ -18,29 +18,34 @@
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
+      <li>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <span id="themeIcon">&#127769;</span>
+        </button>
+      </li>
     </ul>
   </header>
 
   <!-- HOME / HERO -->
   <section id="home" class="hero">
-    <div class="hero-text">
+    <div class="hero-text reveal">
       <h1>Hi, I'm Keerthana M. I build things for the web.</h1>
       <p>Aspiring web developer learning HTML, CSS and JavaScript, one project at a time.</p>
       <a class="btn" href="#contact">Get in touch</a>
       <a class="btn secondary" href="#about" style="margin-left:.75rem;">Learn more</a>
     </div>
-    <img class="profile" alt="Keerthana M" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%232f5bea'/%3E%3Ctext x='100' y='125' font-size='80' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'%3EKM%3C/text%3E%3C/svg%3E">
+    <img class="profile reveal" alt="Keerthana M" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%232f5bea'/%3E%3Ctext x='100' y='125' font-size='80' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'%3EKM%3C/text%3E%3C/svg%3E">
   </section>
 
   <!-- ABOUT -->
-  <section id="about" class="section">
+  <section id="about" class="section reveal">
     <h2>About me</h2>
     <p class="lead">I'm a 3rd year student of Information Science Engineering at Sri Siddhartha Institute of Technology, Tumkur. I enjoy turning ideas into clean, working websites, and I'm currently doing an internship to strengthen my front-end skills.</p>
     <p class="lead">Outside of coding, I like listening to music and watching movies.</p>
   </section>
 
   <!-- SKILLS -->
-  <section id="skills" class="section">
+  <section id="skills" class="section reveal">
     <h2>Skills</h2>
     <div class="skills-grid">
       <div class="skill-card"><span class="icon">&#128187;</span>HTML5</div>
@@ -53,9 +58,9 @@
   </section>
 
   <!-- CONTACT -->
-  <section id="contact" class="section">
+  <section id="contact" class="section reveal">
     <h2>Contact</h2>
-    <p class="lead">Want to work together or just say hello? Reach me here:</p>
+    <p class="lead">Want to work together or just say hello? Reach me here, or use the form below:</p>
     <div class="contact-cards">
       <a class="contact-card" href="mailto:keerthim0457@gmail.com">
         <span class="icon">&#9993;&#65039;</span>
@@ -73,19 +78,30 @@
         <span class="value">github.com/keerthanaM2006</span>
       </a>
     </div>
+
+    <form id="contactForm" class="contact-form" novalidate>
+      <div class="form-row">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name">
+        <span class="error" id="nameError"></span>
+      </div>
+      <div class="form-row">
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email" placeholder="you@example.com">
+        <span class="error" id="emailError"></span>
+      </div>
+      <div class="form-row">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4" placeholder="Write your message..."></textarea>
+        <span class="error" id="messageError"></span>
+      </div>
+      <button type="submit" class="btn">Send message</button>
+      <p class="form-success" id="formSuccess">Thanks! Your message looks good. (This demo form doesn't send email yet.)</p>
+    </form>
   </section>
 
   <footer>&copy; 2026 Keerthana M</footer>
 
-  <script>
-    const toggle = document.getElementById('navToggle');
-    const links = document.getElementById('navLinks');
-    toggle.addEventListener('click', () => {
-      links.classList.toggle('open');
-      const expanded = links.classList.contains('open');
-      toggle.setAttribute('aria-expanded', expanded);
-    });
-    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
