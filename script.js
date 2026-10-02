@@ -1,3 +1,8 @@
+// Mark that JavaScript is running, so CSS only hides .reveal elements
+// when it knows it can un-hide them again. Keeps the page safe even if
+// something below fails to load.
+document.documentElement.classList.add('js-ready');
+
 // ---------- Mobile navigation menu ----------
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
@@ -44,6 +49,12 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.15 });
 
 revealEls.forEach(el => observer.observe(el));
+
+// Safety net: if anything stays hidden for too long (e.g. a browser that
+// doesn't support IntersectionObserver), reveal it anyway after 2 seconds.
+setTimeout(() => {
+  revealEls.forEach(el => el.classList.add('visible'));
+}, 2000);
 
 // ---------- Contact form validation ----------
 const form = document.getElementById('contactForm');

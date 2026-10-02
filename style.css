@@ -167,11 +167,15 @@ body.dark .skill-card, body.dark .contact-card { border-color: #2a3546; }
 body.dark .profile { border-color: var(--panel); }
 
 /* SCROLL REVEAL ANIMATIONS */
-.reveal {
+/* Content is visible by default. Animation only turns on once script.js
+   confirms it's running (adds "js-ready" to <html>), so a missing or
+   failed script.js can never leave the page permanently blank. */
+.reveal { opacity: 1; transform: none; }
+html.js-ready .reveal {
   opacity: 0; transform: translateY(24px);
   transition: opacity .6s ease, transform .6s ease;
 }
-.reveal.visible { opacity: 1; transform: translateY(0); }
+html.js-ready .reveal.visible { opacity: 1; transform: translateY(0); }
 
 /* CONTACT FORM */
 .contact-form {
@@ -200,4 +204,45 @@ body.dark .profile { border-color: var(--panel); }
 
 @media (prefers-reduced-motion: reduce) {
   .reveal { transition: none; opacity: 1; transform: none; }
+}
+
+/* PROJECTS */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.project-card {
+  background: var(--panel); border: 1px solid #d5dde8; border-radius: var(--radius);
+  overflow: hidden; display: flex; flex-direction: column;
+  transition: transform .2s, box-shadow .2s;
+}
+.project-card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px -20px rgba(27,42,65,.4); }
+.project-thumb {
+  height: 110px; display: flex; align-items: center; justify-content: center;
+  font-size: 2.6rem; background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+}
+.project-body { padding: 1.25rem; display: flex; flex-direction: column; gap: .6rem; flex: 1; }
+.project-body h3 { font-size: 1.1rem; }
+.project-body p { color: var(--muted); font-size: .92rem; flex: 1; }
+.project-links { display: flex; gap: 1rem; font-weight: 600; font-size: .9rem; }
+.project-links a { text-decoration: none; }
+.project-links a:hover { text-decoration: underline; }
+
+/* EDUCATION TIMELINE */
+.timeline { margin-top: 1.5rem; border-left: 2px solid var(--accent); padding-left: 1.5rem; }
+.timeline-item { position: relative; padding-bottom: 1.5rem; }
+.timeline-dot {
+  position: absolute; left: -1.95rem; top: 4px;
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--accent); border: 3px solid var(--bg);
+}
+.timeline-content h3 { font-size: 1.1rem; margin-bottom: .2rem; }
+.timeline-meta { color: var(--accent); font-weight: 600; font-size: .9rem; margin-bottom: .4rem; }
+.timeline-content p:not(.timeline-meta) { color: var(--muted); font-size: .95rem; }
+
+.coming-soon {
+  font-size: .85rem; font-weight: 600; color: var(--muted);
+  background: rgba(85,101,125,.12); padding: .35rem .7rem; border-radius: 999px;
 }
