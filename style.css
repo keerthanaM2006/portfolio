@@ -118,8 +118,10 @@ footer { padding: 2rem 8%; color: var(--muted); border-top: 1px solid #d5dde8; t
   .section { padding: 3.5rem 6%; }
 }
 
-/* RESPONSIVE: MOBILE */
-@media (max-width: 720px) {
+/* RESPONSIVE: MOBILE / NARROW TABLET
+   (widened from 720px so the extra Projects & Education nav links
+   never overflow the header on tablet-sized screens) */
+@media (max-width: 860px) {
   .nav-links {
     position: absolute; top: 100%; left: 0; right: 0;
     flex-direction: column; align-items: flex-start; gap: 0;
